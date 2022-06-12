@@ -1,0 +1,213 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: rgb(0, 0, 0);
+    /* font-family: 'Lilita One', cursive; */
+    font-family: 'Montserrat Alternates', sans-serif;
+    /* font-family: 'Montserrat Subrayada', sans-serif; */
+}
+
+#gameFrame{
+    width: 550px;
+    height: 500px;
+    margin: auto;
+    margin-top: 100px;
+    padding: 25px;
+
+    border: none;
+    border-radius: 25px;
+    background-color: rgb(209, 170, 96);
+    box-shadow: 2px 2px 5px rgba(10, 10, 10, 0.522);
+    position: relative;
+}
+
+#title{
+    text-align: center;
+    /* font-family: 'Lilita One', cursive; */
+    /* font-family: 'Montserrat Alternates', sans-serif; */
+    font-family: 'Montserrat Subrayada', sans-serif;
+}
+
+#empty{
+    text-align: center;
+    margin-top: 10px;
+    position: relative;
+}
+
+#results{
+    text-align: center;
+    margin-top: 20px;
+    font-size: 15px;
+}
+
+.buttons{
+    text-align: center;
+    margin-top: 10px;
+}
+
+button{
+    width: 100px;
+    height: 40px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    font-family: 'Montserrat Alternates', sans-serif;
+    font-weight: 700;
+}
+
+#comPoints{
+    position: absolute;
+    right: 0;
+    margin: 50px;
+    color: white;
+}
+
+#playerPoints{
+    position: absolute;
+    left: 0;
+    margin: 50px;
+    color: white;
+}
+
+.move{
+    animation: move 0.5s ease-in-out 1s 2;
+    -webkit-animation: move 0.5s ease-in-out 1s 2;
+}
+
+.bgChange{
+    background: url('/images/icegif-103.gif');
+    background-size: contain;
+    background-repeat: repeat;
+}
+
+#Congrats{
+    background: rgba(229, 216, 173, 0.818);
+    height: auto;
+    color: white;
+    padding: 10px;
+    font-size: 30px;
+    margin: 30px 90px 30px 90px;
+
+    text-align: center;
+    display: none;
+}
+
+@keyframes move {
+    0%,100%{
+        position: relative;
+        -webkit-position: relative;
+        top: 0;
+        -webkit-top: 0;
+    }
+
+    50%{
+        position: relative;
+        -webkit-position: relative;
+        top: 10%;
+        -webkit-top: 10%;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    #gameFrame{
+        width: auto;
+        height: auto;
+        margin-left: 20px;
+        margin-right: 20px;
+        font-size: 10px;
+    }
+
+    #playerHand{
+        width: 100px;
+        height: 100px;
+    }
+
+    #comHand{
+        width: 100px;
+        height: 100px;
+    }
+
+    button{
+        margin-top: 20px;
+    }
+
+    #comPoints{
+        position: relative;
+        color: white;
+        text-align: center;
+    }
+    
+    #playerPoints{
+        position: relative;
+        color: white;
+        text-align: center;
+    }
+
+    #Congrats{
+        background: rgba(229, 216, 173, 0.818);
+        /* width: 250px;
+        height: 150px; */
+        color: white;
+        padding-bottom: 20px;
+        font-size: 20px;
+        margin: 30px 50px 30px 50px;
+    
+        text-align: center;
+        display: none;
+    }
+    
+}
+
+
+
+
+@media screen and (max-width: 300px) {
+    #gameFrame{
+        width: auto;
+        height: auto;
+        margin-left: 20px;
+        margin-right: 20px;
+        font-size: 10px;
+    }
+
+    #playerHand{
+        width: 70px;
+        height: 70px;
+    }
+
+    #comHand{
+        width: 70px;
+        height: 70px;
+    }
+
+    button{
+        margin-top: 20px;
+    }
+
+    #comPoints{
+        position: relative;
+        color: white;
+        text-align: center;
+    }
+    
+    #playerPoints{
+        position: relative;
+        color: white;
+        text-align: center;
+    }
+
+    #Congrats{
+        background: rgba(229, 216, 173, 0.818);
+        /* width: 250px;
+        height: 150px; */
+        color: white;
+        padding-bottom: 20px;
+        font-size: 15px;
+        margin: 30px 50px 30px 50px;
+    
+        text-align: center;    
+        display: none;
+    }
+    
+}
