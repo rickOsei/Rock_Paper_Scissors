@@ -17,13 +17,13 @@ function choices() {
     let srcList = ['com_rock.png', 'com_paper.png', 'com_scissors.png']
 
     rock_btn.addEventListener('click', (e) => {
-        playerChoice = 'rock'
-        randomNum = Math.floor(Math.random() * 3);
-        computerChoice = items[randomNum];
 
         handMovement();
 
         setTimeout(() => {
+            playerChoice = 'rock'
+            randomNum = Math.floor(Math.random() * 3);
+            computerChoice = items[randomNum];
             playerHand.src = '/images/player_rock.png'
             comHand.src = '/images/' + srcList[randomNum]
             determineWinner(playerChoice, computerChoice)
@@ -36,13 +36,12 @@ function choices() {
 
 
     paper_btn.addEventListener('click', (e) => {
-        playerChoice = 'paper'
-        randomNum = Math.floor(Math.random() * 3);
-        computerChoice = items[randomNum];
-
         handMovement();
 
         setTimeout(() => {
+            playerChoice = 'paper'
+            randomNum = Math.floor(Math.random() * 3);
+            computerChoice = items[randomNum];
             playerHand.src = '/images/player_paper.png'
             comHand.src = '/images/' + srcList[randomNum]
             determineWinner(playerChoice, computerChoice)
@@ -56,13 +55,12 @@ function choices() {
 
 
     scissors_btn.addEventListener('click', (e) => {
-        playerChoice = 'scissors'
-        randomNum = Math.floor(Math.random() * 3);
-        computerChoice = items[randomNum];
-
         handMovement();
 
         setTimeout(() => {
+            playerChoice = 'scissors'
+            randomNum = Math.floor(Math.random() * 3);
+            computerChoice = items[randomNum];
             playerHand.src = '/images/player_scissors.png'
             comHand.src = '/images/' + srcList[randomNum]
             determineWinner(playerChoice, computerChoice)
