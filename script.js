@@ -18,9 +18,11 @@ function choices() {
 
     rock_btn.addEventListener('click', (e) => {
 
-        handMovement();
+        shakeHand();
 
         setTimeout(() => {
+            playerHand.classList.remove("shake");
+            comHand.classList.remove("shake");
             playerChoice = 'rock'
             randomNum = Math.floor(Math.random() * 3);
             computerChoice = items[randomNum];
@@ -36,9 +38,12 @@ function choices() {
 
 
     paper_btn.addEventListener('click', (e) => {
-        handMovement();
+
+        shakeHand();
 
         setTimeout(() => {
+            playerHand.classList.remove("shake");
+            comHand.classList.remove("shake");
             playerChoice = 'paper'
             randomNum = Math.floor(Math.random() * 3);
             computerChoice = items[randomNum];
@@ -55,9 +60,12 @@ function choices() {
 
 
     scissors_btn.addEventListener('click', (e) => {
-        handMovement();
+
+        shakeHand();
 
         setTimeout(() => {
+            playerHand.classList.remove("shake");
+            comHand.classList.remove("shake");
             playerChoice = 'scissors'
             randomNum = Math.floor(Math.random() * 3);
             computerChoice = items[randomNum];
@@ -78,78 +86,62 @@ function determineWinner(playerChoice, computerChoice) {
     let Congrats = document.getElementById('Congrats');
     let results = document.getElementById('results');
 
+    // conditions
+
     if (playerChoice === computerChoice) {
         results.innerHTML = 'It is a tie!'
     }
-    else if (playerChoice === 'rock') {
-        if (computerChoice === 'paper') {
-            results.innerHTML = 'Com Wins!'
-            comPoints += 10;
-        } else {
-            results.innerHTML = 'Player Wins!'
+    else {
+        if (
+            (playerChoice === "scissors" && computerChoice === "paper") ||
+            (playerChoice === "paper" && computerChoice === "rock") ||
+            (playerChoice === "rock" && computerChoice === "scissors")
+        ) {
+            results.innerHTML = "You won!";
             playerPoints += 10;
-        }
-    }
-    else if (playerChoice === 'paper') {
-        if (computerChoice === 'scissors') {
-            results.innerHTML = 'Com Wins!'
-            comPoints += 10;
         } else {
-            results.innerHTML = 'Player Wins!'
-            playerPoints += 10;
-        }
-    }
-    else if (playerChoice === 'scissors') {
-        if (computerChoice === 'rock') {
-            results.innerHTML = 'Com Wins!'
+            results.innerHTML = "Computer won!";
             comPoints += 10;
-        } else {
-            results.innerHTML = 'Player Wins!'
-            playerPoints += 10;
         }
-    }
 
-    if (playerPoints == 50) {
-        frame.classList.add('bgChange')
-        playerHand.style.display = 'none'
-        comHand.style.display = 'none'
-        Congrats.style.display = 'block'
-        Congrats.textContent = 'Player Wins Overall !'
-        title.style.color = 'rgb(209, 170, 96)'
-        results.style.color = 'rgb(225, 191, 129)'
-        setTimeout(() => {
-            window.location.reload();
-        }, 7000)
-    } else if (comPoints === 50) {
-        frame.classList.add('bgChange')
-        playerHand.style.display = 'none'
-        comHand.style.display = 'none'
-        Congrats.style.display = 'block'
-        Congrats.textContent = 'Com Wins Overall !'
-        title.style.color = 'rgb(225, 191, 129)'
-        results.style.color = 'rgb(225, 191, 129)'
+        // declear winner
+        if (playerPoints == 30) {
+            frame.classList.add("bgChange");
+            playerHand.style.display = "none";
+            comHand.style.display = "none";
+            Congrats.style.display = "block";
+            Congrats.textContent = "Player Wins Overall !";
+            title.style.color = "rgb(209, 170, 96)";
+            results.style.color = "rgb(225, 191, 129)";
 
-        setTimeout(() => {
-            window.location.reload();
-        }, 7000)
+            setTimeout(() => {
+                playAgain();
+            }, 7000);
+
+        } else if (comPoints === 30) {
+            frame.classList.add("bgChange");
+            playerHand.style.display = "none";
+            comHand.style.display = "none";
+            Congrats.style.display = "block";
+            Congrats.textContent = "Com Wins Overall !";
+            title.style.color = "rgb(225, 191, 129)";
+            results.style.color = "rgb(225, 191, 129)";
+
+            setTimeout(() => {
+                playAgain();
+            }, 7000);
+        }
     }
 };
 
-
-function handMovement() {
-    playerHand.addEventListener('animationend', function () {
-        this.classList.remove('move')
-    });
-    playerHand.classList.add('move')
-
-    comHand.classList.add('move')
-    comHand.addEventListener('animationend', function () {
-        this.classList.remove('move')
-    });
-}
+const shakeHand = () => {
+    playerHand.classList.add("shake");
+    comHand.classList.add("shake");
+  };
 
 choices()
 
 function playAgain() {
     window.location.reload();
-};
+}
+
