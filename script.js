@@ -18,7 +18,6 @@ function choices() {
 
     rock_btn.addEventListener('click', (e) => {
 
-        handMovement();
         shakeHand();
 
         setTimeout(() => {
@@ -40,7 +39,6 @@ function choices() {
 
     paper_btn.addEventListener('click', (e) => {
 
-        handMovement();
         shakeHand();
 
         setTimeout(() => {
@@ -63,7 +61,6 @@ function choices() {
 
     scissors_btn.addEventListener('click', (e) => {
 
-        handMovement();
         shakeHand();
 
         setTimeout(() => {
@@ -136,19 +133,6 @@ function determineWinner(playerChoice, computerChoice) {
         }
     }
 };
-
-
-function handMovement() {
-    playerHand.addEventListener('animationend', function () {
-        this.classList.remove('move')
-    });
-    playerHand.classList.add('move')
-
-    comHand.classList.add('move')
-    comHand.addEventListener('animationend', function () {
-        this.classList.remove('move')
-    });
-}
 
 const shakeHand = () => {
     playerHand.classList.add("shake");
