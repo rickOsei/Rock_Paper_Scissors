@@ -18,11 +18,12 @@ function choices() {
 
     rock_btn.addEventListener('click', (e) => {
 
-        shakeHand();
+        shakeHandPlayer();
+        shakeHandeCom();
 
         setTimeout(() => {
-            playerHand.classList.remove("shake");
-            comHand.classList.remove("shake");
+            playerHand.classList.remove("shakePlayer");
+            comHand.classList.remove("shakeCom");
             playerChoice = 'rock'
             randomNum = Math.floor(Math.random() * 3);
             computerChoice = items[randomNum];
@@ -39,11 +40,12 @@ function choices() {
 
     paper_btn.addEventListener('click', (e) => {
 
-        shakeHand();
+        shakeHandPlayer();
+        shakeHandeCom();
 
         setTimeout(() => {
-            playerHand.classList.remove("shake");
-            comHand.classList.remove("shake");
+            playerHand.classList.remove("shakePlayer");
+            comHand.classList.remove("shakeCom");
             playerChoice = 'paper'
             randomNum = Math.floor(Math.random() * 3);
             computerChoice = items[randomNum];
@@ -61,11 +63,12 @@ function choices() {
 
     scissors_btn.addEventListener('click', (e) => {
 
-        shakeHand();
+        shakeHandPlayer();
+        shakeHandeCom();
 
         setTimeout(() => {
-            playerHand.classList.remove("shake");
-            comHand.classList.remove("shake");
+            playerHand.classList.remove("shakePlayer");
+            comHand.classList.remove("shakeCom");
             playerChoice = 'scissors'
             randomNum = Math.floor(Math.random() * 3);
             computerChoice = items[randomNum];
@@ -134,10 +137,13 @@ function determineWinner(playerChoice, computerChoice) {
     }
 };
 
-const shakeHand = () => {
-    playerHand.classList.add("shake");
-    comHand.classList.add("shake");
+const shakeHandPlayer = () => {
+    playerHand.classList.add("shakePlayer");
   };
+
+const shakeHandeCom = () => {
+    comHand.classList.add("shakeCom");
+}
 
 choices()
 

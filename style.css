@@ -97,20 +97,35 @@ button:hover {
 
 /* shake hands  */
 
-.shake {
-    animation: playing 0.5s infinite;
-    -webkit-animation: playing 0.5s infinite;
+.shakePlayer {
+    animation: playingPlayer 0.5s infinite;
 }
 
-@keyframes playing {
+.shakeCom {
+    animation: playingCom 0.5s infinite;
+}
+
+@keyframes playingPlayer {
     0% {
-        transform: rotate(-20deg) translate(-20px, 20px);
+        transform: rotate(-20deg) translate(-20px, -20px);
     }
     50% {
-        transform: rotate(20deg);
+        transform: rotate(20deg) translate(0px, 20px);
     }
     100% {
-        transform: rotate(-20deg) translate(-20px, 20px);
+        transform: rotate(-20deg) translate(-20px, -20px);
+    }
+}
+
+@keyframes playingCom {
+    0% {
+        transform: rotate(20deg) translate(-20px, -20px);
+    }
+    50% {
+        transform: rotate(-20deg) translate(0px, 20px);
+    }
+    100% {
+        transform: rotate(20deg) translate(-20px, -20px);
     }
 }
 
