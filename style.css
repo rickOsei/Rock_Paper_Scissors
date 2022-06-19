@@ -54,6 +54,12 @@ button{
     border-radius: 15px;
     font-family: 'Montserrat Alternates', sans-serif;
     font-weight: 700;
+    cursor: pointer;
+    transition: all .3s ;
+}
+
+button:hover {
+    opacity: 0.85;
 }
 
 #comPoints{
@@ -68,11 +74,6 @@ button{
     left: 0;
     margin: 50px;
     color: white;
-}
-
-.move{
-    animation: move 0.5s ease-in-out 1s 2;
-    -webkit-animation: move 0.5s ease-in-out 1s 2;
 }
 
 .bgChange{
@@ -93,21 +94,29 @@ button{
     display: none;
 }
 
-@keyframes move {
-    0%,100%{
-        position: relative;
-        -webkit-position: relative;
-        top: 0;
-        -webkit-top: 0;
-    }
 
-    50%{
-        position: relative;
-        -webkit-position: relative;
-        top: 10%;
-        -webkit-top: 10%;
+/* shake hands  */
+
+.shake {
+    animation: playing 0.5s infinite;
+    -webkit-animation: playing 0.5s infinite;
+}
+
+@keyframes playing {
+    0% {
+        transform: rotate(-20deg) translate(0, 50px);
+    }
+    50% {
+        transform: rotate(20deg) translate(0, 0px);
+    }
+    100% {
+        transform: rotate(-20deg) translate(0, 50px);
     }
 }
+
+/* shake hands end  */
+
+
 
 @media screen and (max-width: 800px) {
     #gameFrame{
